@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  MauticAPIGetMessage16A6SU17J84D0:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: >-
+        ThreeBirds.MauticAPI::ThreeBirds.MauticAPI.GetMessageData::GetMessageAPIData
+      Runtime: dotnetcore3.1
+      CodeUri: .
+      Description: ''
+      MemorySize: 256
+      Timeout: 900
+      Role: 'arn:aws:iam::570277181188:role/MauticAPI-GetMessageRole-14OIE8RCMYDNJ'
+      Tags:
+        'lambda:createdBy': SAM
+        AWSServerlessAppNETCore: 'true'
