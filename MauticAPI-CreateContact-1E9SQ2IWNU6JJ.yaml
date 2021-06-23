@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  MauticAPICreateContact1E9SQ2IWNU6JJ:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: >-
+        ThreeBirds.MauticAPI::ThreeBirds.MauticAPI.CreateContact::CreateContactData
+      Runtime: dotnetcore3.1
+      CodeUri: .
+      Description: ''
+      MemorySize: 10240
+      Timeout: 900
+      Role: 'arn:aws:iam::570277181188:role/MauticAPI-CreateContactRole-1KMYC1JZLVBB7'
+      Events:
+        SQS1:
+          Type: SQS
+          Properties:
+            Queue:
+              'Fn::GetAtt':
+                - SQSQueue1
+                - Arn
+            BatchSize: 100
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0412baeb8b49885f3
+          - sg-0a62369466bd6dbdc
+        SubnetIds:
+          - subnet-050a368a85c138678
+      Tags:
+        'lambda:createdBy': SAM
+        AWSServerlessAppNETCore: 'true'
+      ReservedConcurrentExecutions: 25
+  SQSQueue1:
+    Type: 'AWS::SQS::Queue'
+    Properties: {}
