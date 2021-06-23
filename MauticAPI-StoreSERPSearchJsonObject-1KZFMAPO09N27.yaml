@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: BasicRoles
+Resources:
+  MauticAPIStoreSERPSearchJsonObject1KZFMAPO09N27:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: >-
+        ThreeBirds.MauticAPI::ThreeBirds.MauticAPI.StoreSERPSearchAPIJsonObject::StoreSERPSearchAPIJsonObjectData
+      Runtime: dotnetcore3.1
+      CodeUri: .
+      Description: BasicRoles
+      MemorySize: 500
+      Timeout: 900
+      Role: >-
+        arn:aws:iam::570277181188:role/service-role/fetch_CVH_clients-role-pk5n92fz
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0412baeb8b49885f3
+          - sg-0959644b4a11e51ea
+          - sg-0a62369466bd6dbdc
+          - sg-0dfcd2cea4813595f
+          - sg-03f3f051479f3954d
+        SubnetIds:
+          - subnet-025107d49ccd67ed6
+          - subnet-050a368a85c138678
+          - subnet-03725e5724ca2402b
+          - subnet-0df647c5e8fe98ab2
+          - subnet-0bb0e3ea3cb6ab46e
+          - subnet-06a8e6113233898d1
+      Tags:
+        'lambda:createdBy': SAM
+        AWSServerlessAppNETCore: 'true'
+      ReservedConcurrentExecutions: 2
