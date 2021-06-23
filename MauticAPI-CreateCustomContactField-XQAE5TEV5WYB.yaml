@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  MauticAPICreateCustomContactFieldXQAE5TEV5WYB:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: >-
+        ThreeBirds.MauticAPI::ThreeBirds.MauticAPI.CreateCustomField::CreateCustomFieldData
+      Runtime: dotnetcore3.1
+      CodeUri: .
+      Description: ''
+      MemorySize: 500
+      Timeout: 900
+      Role: >-
+        arn:aws:iam::570277181188:role/MauticAPI-CreateCustomContactFieldRole-16OTCP4XSAXO8
+      Tags:
+        'lambda:createdBy': SAM
+        AWSServerlessAppNETCore: 'true'
